@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل - Tawseel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span>تواصل</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#home">الرئيسية</a>
+                    <a href="#about">عن التطبيق</a>
+                    <a href="#services">الخدمات</a>
+                    <a href="#contact">اتصل بنا</a>
+                </div>
+                <div class="nav-buttons">
+                    <button class="btn btn-login" onclick="showLogin()">تسجيل الدخول</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>تواصل - منصة النقل الذكية</h1>
+                <p>ربط الركاب والناقلين في جميع محافظات الأردن</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="showPassengerRegister()">تسجيل كراكب</button>
+                    <button class="btn btn-secondary" onclick="showDriverRegister()">تسجيل كناقل</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>عن تواصل</h2>
+                <p>منصة ذكية تربط الركاب والناقلين عبر جميع المحافظات في الأردن، مما يجعل النقل أسهل وأسرع وأكثر أمانًا وموثوقية.</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2>الخدمات</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-user"></i>
+                        <h3>للكثيرين</h3>
+                        <p>ابحث عن رحلات مطابقة لطريقك وقلل التكاليف</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-car"></i>
+                        <h3>للناقلين</h3>
+                        <p>زد من دخلك وقلل التكاليف من خلال استقبال ركاب</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>تغطية واسعة</h3>
+                        <p>الوصول إلى جميع محافظات الأردن</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>اتصل بنا</h2>
+                <form id="contactForm">
+                    <input type="text" placeholder="الاسم" required>
+                    <input type="email" placeholder="البريد الإلكتروني" required>
+                    <textarea placeholder="الرسالة" required></textarea>
+                    <button type="submit" class="btn btn-primary">إرسال</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>تسجيل الدخول</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <input type="password" placeholder="كلمة المرور" required>
+                <button type="submit" class="btn btn-primary">تسجيل الدخول</button>
+            </form>
+            <p>ليس لديك حساب؟ <a href="#" onclick="showRegister()">سجّل الآن</a></p>
+        </div>
+    </div>
+
+    <!-- Passenger Registration Modal -->
+    <div id="passengerRegisterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('passengerRegisterModal')">&times;</span>
+            <h2>تسجيل كراكب</h2>
+            <form id="passengerRegisterForm">
+                <input type="text" placeholder="الاسم الكامل" required>
+                <input type="tel" placeholder="رقم الهاتف" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <input type="password" placeholder="كلمة المرور" required>
+                <select required>
+                    <option value="">اختر المحافظة</option>
+                    <option value="amman">عمان</option>
+                    <option value="irbid">إربد</option>
+                    <option value="zarqa">الزرقاء</option>
+                    <option value="aqaba">العقبة</option>
+                    <option value="madaba">مادبا</option>
+                </select>
+                <button type="submit" class="btn btn-primary">تسجيل</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Driver Registration Modal -->
+    <div id="driverRegisterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('driverRegisterModal')">&times;</span>
+            <h2>تسجيل كناقل</h2>
+            <form id="driverRegisterForm">
+                <input type="text" placeholder="الاسم الكامل" required>
+                <input type="tel" placeholder="رقم الهاتف" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <input type="password" placeholder="كلمة المرور" required>
+                <select required>
+                    <option value="">اختر المحافظة</option>
+                    <option value="amman">عمان</option>
+                    <option value="irbid">إربد</option>
+                    <option value="zarqa">الزرقاء</option>
+                    <option value="aqaba">العقبة</option>
+                    <option value="madaba">مادبا</option>
+                </select>
+                <input type="text" placeholder="نوع المركبة" required>
+                <input type="text" placeholder="رقم اللوحة" required>
+                <button type="submit" class="btn btn-primary">تسجيل</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Passenger Dashboard Modal -->
+    <div id="passengerDashboardModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close" onclick="closeModal('passengerDashboardModal')">&times;</span>
+            <h2>لوحة تحكم الركاب</h2>
+            <div class="dashboard-content">
+                <div class="request-form">
+                    <h3>طلب رحلة جديدة</h3>
+                    <form id="requestTripForm">
+                        <div class="location-input">
+                            <label>الموقع الحالي:</label>
+                            <input type="text" id="currentLocation" placeholder="أدخل موقعك" required>
+                        </div>
+                        <div class="location-input">
+                            <label>الوجهة:</label>
+                            <input type="text" id="destination" placeholder="أدخل الوجهة" required>
+                        </div>
+                        <div class="time-input">
+                            <label>وقت الرحلة:</label>
+                            <select id="tripTime">
+                                <option value="now">الآن</option>
+                                <option value="later">لاحقًا</option>
+                            </select>
+                        </div>
+                        <div class="contact-input">
+                            <label>رقم الهاتف:</label>
+                            <input type="tel" id="contactPhone" placeholder="رقم الهاتف" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">طلب الرحلة</button>
+                    </form>
+                </div>
+                <div class="requests-list">
+                    <h3>طلبات الرحلات</h3>
+                    <div id="requestsContainer">
+                        <!-- Requests will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Driver Dashboard Modal -->
+    <div id="driverDashboardModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close" onclick="closeModal('driverDashboardModal')">&times;</span>
+            <h2>لوحة تحكم الناقل</h2>
+            <div class="dashboard-content">
+                <div class="search-form">
+                    <h3>البحث عن ركاب</h3>
+                    <form id="searchPassengersForm">
+                        <div class="location-input">
+                            <label>نقطة البداية:</label>
+                            <input type="text" id="startLocation" placeholder="أدخل نقطة البداية" required>
+                        </div>
+                        <div class="location-input">
+                            <label>الوجهة:</label>
+                            <input type="text" id="driverDestination" placeholder="أدخل الوجهة" required>
+                        </div>
+                        <div class="filters">
+                            <label>الفلاتر:</label>
+                            <select id="timeFilter">
+                                <option value="any">أي وقت</option>
+                                <option value="today">اليوم</option>
+                                <option value="tomorrow">غدًا</option>
+                            </select>
+                            <select id="governorateFilter">
+                                <option value="all">جميع المحافظات</option>
+                                <option value="amman">عمان</option>
+                                <option value="irbid">إربد</option>
+                                <option value="zarqa">الزرقاء</option>
+                                <option value="aqaba">العقبة</option>
+                                <option value="madaba">مادبا</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">البحث</button>
+                    </form>
+                </div>
+                <div class="passengers-list">
+                    <h3>الركاب المتاحين</h3>
+                    <div id="passengersContainer">
+                        <!-- Passengers will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/passenger.js"></script>
+    <script src="js/driver.js"></script>
+</body>
+</html>
